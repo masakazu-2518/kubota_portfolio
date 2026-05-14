@@ -1,0 +1,603 @@
+/* =========================
+   TOP PAGE RESET STYLE
+========================= */
+.hero {
+    min-height: 100vh;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ←ここが重要 */
+    padding: 0 20px;
+    /* ←上の110px削除 */
+    overflow: hidden;
+}
+
+.back-top {
+    display: block;
+    margin-top: 18px;
+    color: #3e9cf0;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.back-top:hover {
+    color: #3f67d8;
+}
+
+.menu-stage {
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 170px);
+    transform: translateY(-50%);
+    z-index: 970;
+}
+
+.hero-run {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.run-stage {
+    position: relative;
+    z-index: 950;
+}
+
+/* =========================
+   CAPSULE
+========================= */
+.run-ring {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+
+
+.run-ring::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    background: conic-gradient(#9edff8 0deg,
+            #66c9f5 90deg,
+            #3e9cf0 180deg,
+            #3f67d8 270deg,
+            #9edff8 360deg);
+
+    animation: ringRotate 3s linear infinite;
+    z-index: 0;
+}
+
+@keyframes ringFlow {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+/* 内側の抜き */
+
+
+.run-ring::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    z-index: 1;
+}
+
+/* 輪っか7つ */
+.hero-run {
+    position: relative;
+
+}
+
+.ripple-rings {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.ripple-ring {
+    position: absolute;
+    width: 90px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    border: 2px solid rgba(67, 150, 240, 0.42);
+    box-shadow: 0 0 24px rgba(67, 180, 240, 0.28);
+}
+
+.ripple-ring01 {
+    top: -50%;
+    left: -10%;
+    width: 500px;
+    border-width: 18px;
+}
+
+.ripple-ring02 {
+    top: 80%;
+    left: 1%;
+    width: 300px;
+    border-width: 10px;
+}
+
+.ripple-ring03 {
+    bottom: -20%;
+    left: 26%;
+    width: 1200px;
+    border-width: 10px;
+}
+
+.ripple-ring04 {
+    top: 8%;
+    right: -4%;
+    width: 330px;
+    border-width: 14px;
+}
+
+.ripple-ring05 {
+    bottom: -30%;
+    right: 40%;
+    width: 450px;
+    border-width: 14px;
+}
+
+.ripple-ring06 {
+    bottom: 5%;
+    right: 30%;
+    width: 180px;
+    border-width: 10px;
+}
+
+.ripple-ring07 {
+    bottom: -30%;
+    left: 50%;
+    width: 670px;
+    border-width: 11px;
+}
+
+.ripple-ring {
+    animation: ringSpread 8s ease-out infinite;
+}
+
+@keyframes ringSpread {
+    0% {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    20% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+.ripple-ring01 {
+    animation-delay: 0s;
+}
+
+.ripple-ring02 {
+    animation-delay: 1.2s;
+}
+
+.ripple-ring03 {
+    animation-delay: 2.4s;
+}
+
+.ripple-ring04 {
+    animation-delay: 3.6s;
+}
+
+.ripple-ring05 {
+    animation-delay: 4.8s;
+}
+
+.ripple-ring06 {
+    animation-delay: 6s;
+}
+
+.ripple-ring07 {
+    animation-delay: 7.2s;
+}
+
+/* =========================
+   NAME
+========================= */
+
+
+.run-name {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: grid;
+    place-content: center;
+
+    text-align: center;
+    font-size: 32px;
+    color: #0f172a;
+    text-transform: uppercase;
+}
+
+/* =========================
+   RUNNER
+========================= */
+.runner {
+    position: absolute;
+    left: 50%;
+    top: -150px;
+    transform: translateX(-50%);
+    z-index: 3;
+
+    width: 168px;
+    height: 168px;
+    background-image: url("../img/runner_sprite_4frame.png");
+    background-repeat: no-repeat;
+    background-size: 672px 168px;
+    background-position: 0 0;
+
+    animation:
+        runnerSprite 0.75s steps(4) infinite,
+        runnerBounce 0.75s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* ハンバーガー本体 */
+.hamburger {
+    position: fixed;
+    top: 50px;
+    right: 60px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #1965cf;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+/* 3本線 共通 */
+.hamburger span {
+    position: absolute;
+    left: 50%;
+    width: 36px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    transform-origin: center center;
+    transition: all 0.35s ease;
+}
+
+/* 閉じてる時 */
+.hamburger span:nth-child(1) {
+    top: 34px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 47px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 60px;
+}
+
+/* 開いた時 */
+.hamburger.active span:nth-child(1) {
+    top: 47px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    top: 47px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* メニュー */
+.menu {
+    position: fixed;
+    inset: 0;
+    background: #baddf7;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    z-index: 990;
+    transition: none;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.menu-inner {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 170px);
+    transform: translateY(-50%);
+    z-index: 960;
+}
+
+.menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    transform: translateX(10px);
+}
+
+.menu-item {
+    margin: 0 0 24px 0;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.menu-item a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 1;
+    transition: color 0.35s ease;
+    cursor: pointer;
+}
+
+.menu-item a:hover {
+    color: #60A5FA;
+}
+
+.menu-inner {
+    position: fixed;
+    top: 50%;
+    left: calc(50% + 170px);
+    transform: translateY(-50%);
+    z-index: 960;
+}
+
+.menu-inner::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(16, 32, 60, 0.4);
+    transform: translate(-45%, -50%);
+    filter: blur(8px);
+    z-index: -1;
+}
+
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes runnerSprite {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -672px 0;
+    }
+}
+
+@keyframes runnerBounce {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+
+/*タブレット*/
+@media screen and (max-width: 768px) {
+    .hamburger {
+        z-index: 2200;
+    }
+
+    .hero {
+        padding: 0 16px;
+    }
+
+    .run-ring {
+        width: 260px;
+        height: 260px;
+    }
+
+    .run-ring::after {
+        inset: 18px;
+    }
+
+    .run-name {
+        font-size: 28px;
+        letter-spacing: 0.03em;
+    }
+
+    .runner {
+        top: -118px;
+        width: 144px;
+        height: 144px;
+        background-size: 576px 144px;
+    }
+
+    @keyframes runnerSprite {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: -576px 0;
+        }
+    }
+
+    .menu {
+        background: rgba(9, 22, 40, 0.72);
+        z-index: 2000;
+    }
+
+    .menu-inner {
+        top: 50%;
+        left: 76%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+    }
+
+    .menu-inner::before {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .menu-list {
+        text-align: center;
+    }
+
+    body.no-scroll .hero-run .run-stage {
+        display: none;
+    }
+}
+
+/* =========================
+   SMARTPHONE
+========================= */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 0;
+    }
+
+    .run-ring {
+        width: 220px;
+        height: 220px;
+    }
+
+    .run-ring::after {
+        inset: 16px;
+    }
+
+    .ripple-ring {
+        animation: none;
+    }
+
+    .run-name {
+        font-size: 22px;
+        line-height: 1.0;
+        letter-spacing: 0.02em;
+    }
+
+    .runner {
+        top: -92px;
+        width: 112px;
+        height: 112px;
+        background-size: 448px 112px;
+    }
+
+    @keyframes runnerSprite {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: -448px 0;
+        }
+    }
+
+    .hamburger {
+        top: 28px;
+        right: 24px;
+        width: 72px;
+        height: 72px;
+        z-index: 2200;
+    }
+
+    .hamburger span {
+        width: 30px;
+    }
+
+    .hamburger span:nth-child(1) {
+        top: 24px;
+    }
+
+    .hamburger span:nth-child(2) {
+        top: 35px;
+    }
+
+    .hamburger span:nth-child(3) {
+        top: 46px;
+    }
+
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(3) {
+        top: 35px;
+    }
+
+    .menu {
+        background: rgba(9, 22, 40, 0.72);
+        z-index: 2000;
+    }
+
+    .menu-inner {
+        top: 50%;
+        left: 76%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+    }
+
+    .menu-inner::before {
+        left: 38%;
+        transform: translate(-50%, -50%);
+    }
+
+    .menu-list {
+        text-align: center;
+    }
+
+    body.no-scroll .hero-run .run-stage {
+        display: none;
+    }
+}
