@@ -178,10 +178,6 @@ body.modal-open {
     z-index: 0;
 }
 
-.works-line {
-    z-index: 1;
-}
-
 .works-title {
     margin-bottom: 56px;
     color: #071a38;
@@ -352,12 +348,6 @@ body.modal-open .hamburger {
     letter-spacing: 0.18em;
 }
 
-.work-modal-images {
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-}
-
 .work-modal-tab {
     padding: 10px 24px;
     border: none;
@@ -516,15 +506,6 @@ body.modal-open .hamburger {
     width: 100%;
     height: auto;
     display: block;
-}
-
-
-
-/*  */
-.work-detail {
-    margin-top: 56px;
-    padding-top: 56px;
-    border-top: 1px solid #d9e2f0;
 }
 
 .work-detail-jump {
@@ -1104,22 +1085,20 @@ body.modal-open .hamburger {
     letter-spacing: 0.2em;
 }
 
-.footer-github {
+/* githubの文字レイアウト */
+.final-github {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-
     margin-bottom: 4px;
-
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.35);
     font-size: 1.2rem;
     text-decoration: none;
-
-    transition: 0.3s;
+    transition: color 0.3s, opacity 0.3s;
 }
 
-.footer-github:hover {
+.final-github:hover {
     color: #fff;
 }
 
@@ -1249,6 +1228,39 @@ body.modal-open .hamburger {
         height: 44px;
         background: transparent;
         padding: 0;
+    }
+
+    .final-github {
+        position: absolute;
+        left: 50%;
+        bottom: 44px;
+        z-index: 5;
+        transform: translateX(-50%);
+
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 1.2rem;
+        text-decoration: none;
+
+        transition: color 0.3s;
+    }
+
+    .final-github:hover {
+        color: #fff;
+    }
+
+    .final-copy {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        z-index: 5;
+        transform: translateX(-50%);
+
+        font-size: 12px;
+        color: rgba(216, 244, 255, 0.4);
+        letter-spacing: 0.2em;
+
+        white-space: nowrap;
+        width: max-content;
     }
 }
 
